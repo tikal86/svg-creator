@@ -19,7 +19,7 @@ public class Svg {
     }
 
     public String toString() {
-        return "<svg viewport=\"" +
+        return "<svg viewBox=\"" +
                 viewbox_minx + " " +
                 viewbox_miny + " " +
                 viewbox_width + " " +
@@ -29,7 +29,7 @@ public class Svg {
                         .map(Object::toString)
                         .reduce((elementsString, element)  -> elementsString + element )
                 .orElse("")+
-                "></svg>";
+                "</svg>";
     }
 
     public static class SvgBuilder {
@@ -48,8 +48,8 @@ public class Svg {
             elements = new ArrayList<>();
         }
 
-        public SvgBuilder with(Circle circle) {
-            elements.add(circle);
+        public SvgBuilder with(SvgElement element) {
+            elements.add(element);
             return this;
         }
 
