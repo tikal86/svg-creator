@@ -28,7 +28,7 @@ public class Svg {
                 elements.stream()
                         .map(Object::toString)
                         .reduce((elementsString, element)  -> elementsString + element )
-                .orElse("")+
+                .orElse("") +
                 "</svg>";
     }
 

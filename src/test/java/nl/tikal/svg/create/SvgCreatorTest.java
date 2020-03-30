@@ -27,7 +27,7 @@ public class SvgCreatorTest
                         .addClassDeclaration(".small { font: italic 13px sans-serif; }")
                         .addClassDeclaration(".heavy { font: bold 30px sans-serif; }")
                 )
-                .with(new Circle.CircleBuilder(50, 50, 50).build())
+                .with(new Circle.CircleBuilder(50, 50, 50, "black", "yellowish").build())
                 .with(new Text.TextBuilder(50,50, "test", "red").build())
                 .build();
         File svgFile = new File("target/blog-deel1.svg");
@@ -48,7 +48,7 @@ public class SvgCreatorTest
     public void shouldCreateSvgWithCircle() throws IOException {
         SvgCreator.main(new String[]{"Hello world"});
         final Svg svg = new Svg.SvgBuilder(0, 0, 300, 100)
-                .with(new Circle.CircleBuilder(50, 50, 50).build())
+                .with(new Circle.CircleBuilder(50, 50, 50, "black", "yellowish").build())
                 .build();
         File svgFile = new File("target/blog-deel1.svg");
         final String svgString = printToString(svg);

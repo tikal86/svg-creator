@@ -18,7 +18,7 @@ public class Style extends SvgElement {
                 "     * fill property, the color property is for HTML only */\n" +
                 styles.stream()
                 .map(Object::toString)
-                        .collect(Collectors.joining(";\n")) +
+                        .collect(Collectors.joining("\n")) +
                 "</style>";
     }
 
