@@ -6,26 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CircleWithText extends SvgElement {
+    private static final int TEXT_OFFSET_ONE_DIGIT = 6;
+    private static final int TEXT_OFFSET_TWO_DIGITS = 11;
 
-    private final int center_x;
-    private final int center_y;
-    private final int radius;
-    private String strokeClass;
-    private String styleClass;
-    private String text;
+    private int textOffset;
     private List<SvgElement> elements;
 
     public CircleWithText(int center_x, int center_y, int radius, String strokeClass, String styleClass, String text) {
         super();
-        this.center_x = center_x;
-        this.center_y = center_y;
-        this.radius = radius;
-        this.strokeClass = strokeClass;
-        this.styleClass = styleClass;
-        this.text = text;
+        textOffset = TEXT_OFFSET_ONE_DIGIT;
+        if (text.length() == 2) {
+            textOffset = TEXT_OFFSET_TWO_DIGITS;
+        }
         elements = new ArrayList<>();
             elements.add(new Circle.CircleBuilder(center_x, center_y, radius, strokeClass, styleClass).build());
-        elements.add(new Text.TextBuilder(center_x - 6,center_y + 7, text, "small").build());
+        elements.add(new Text.TextBuilder(center_x - textOffset,center_y + 7, text, "small").build());
 
     }
 

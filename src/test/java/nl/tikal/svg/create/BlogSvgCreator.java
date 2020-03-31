@@ -27,13 +27,13 @@ public class BlogSvgCreator
                         .addClassDeclaration(".yellowish {fill: rgb(255,203,70); }")
                         .addClassDeclaration(".blue {fill: rgb(62,161,203);}")
                         .addClassDeclaration(".green {fill: rgb(130,215,54);}")
+                        .addClassDeclaration(".red {fill: rgb(255,105,70)};")
                 )
                 .with(new Lifeline.LifelineBuilder(20,200,600,200, "black").build())
                 .with(new CircleWithText.CircleWithTextBuilder(100, 200, 20, "black", "yellowish", "2").build())
-                .with(new Circle.CircleBuilder(200, 200, 20, "black", "blue").build())
-                .with(new Text.TextBuilder(189,207, "30", "small").build())
-                .with(new Circle.CircleBuilder(250, 200, 20, "black", "green").build())
-                .with(new Text.TextBuilder(244,207, "5", "small").build())
+                .with(new CircleWithText.CircleWithTextBuilder(200, 200, 20, "black", "blue", "30").build())
+                .with(new CircleWithText.CircleWithTextBuilder(250, 200, 20, "black", "green", "22").build())
+                .with(new CircleWithText.CircleWithTextBuilder(300, 200, 20, "black", "red", "5").build())
                 .build();
         File svgFile = new File("target/blog-deel1.svg");
         final String svgString = printToString(svg);
