@@ -20,6 +20,11 @@ public class BlogSvgCreator
     @Test
     public void shouldCreateBlogDeel1Svg() throws IOException {
         SvgCreator.main(new String[]{"Blog deel 1"});
+        final int start_x = 20;
+        final int end_x = 600;
+        final int start_y = 100;
+        final int horzontal_distance = 50;
+        final int vertical_distance = 100;
         final Svg svg = new Svg.SvgBuilder(0, 0, 660, 340)
                 .with(new Style()
                         .addClassDeclaration(".red { font: 40px serif; fill: red; }")
@@ -29,11 +34,13 @@ public class BlogSvgCreator
                         .addClassDeclaration(".green {fill: rgb(130,215,54);}")
                         .addClassDeclaration(".red {fill: rgb(255,105,70)};")
                 )
-                .with(new Lifeline.LifelineBuilder(20,200,600,200, "black").build())
-                .with(new CircleWithText.CircleWithTextBuilder(100, 200, 20, "black", "yellowish", "2").build())
-                .with(new CircleWithText.CircleWithTextBuilder(200, 200, 20, "black", "blue", "30").build())
-                .with(new CircleWithText.CircleWithTextBuilder(250, 200, 20, "black", "green", "22").build())
-                .with(new CircleWithText.CircleWithTextBuilder(300, 200, 20, "black", "red", "5").build())
+                .with(new Lifeline.LifelineBuilder(start_x,start_y,end_x,start_y, "black").build())
+                .with(new CircleWithText.CircleWithTextBuilder(2 * horzontal_distance, start_y, 20, "black", "yellowish", "2").build())
+                .with(new CircleWithText.CircleWithTextBuilder(3 * horzontal_distance, start_y, 20, "black", "blue", "30").build())
+                .with(new CircleWithText.CircleWithTextBuilder(4 * horzontal_distance, start_y, 20, "black", "green", "22").build())
+                .with(new CircleWithText.CircleWithTextBuilder(5 * horzontal_distance, start_y, 20, "black", "red", "5").build())
+                .with(new Lifeline.LifelineBuilder(start_x,300,end_x,300, "black").build())
+                .with(new OperationBox.OperationBoxBuilder(start_x, end_x, "filter (x => x > 10)").build())
                 .build();
         File svgFile = new File("target/blog-deel1.svg");
         final String svgString = printToString(svg);
