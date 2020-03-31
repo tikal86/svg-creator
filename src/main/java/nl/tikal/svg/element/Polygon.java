@@ -40,7 +40,7 @@ public class Polygon extends SvgElement {
                 "points=\"" + points.stream()
                 .map(Object::toString)
                 .collect(Collectors.joining(" ")) +
-                "\" " +
+                "\"" +
                 " fill=\"" + fillClass + "\"" +
                 " stroke=\"" + strokeClass + "\"" +
                 "/>";
