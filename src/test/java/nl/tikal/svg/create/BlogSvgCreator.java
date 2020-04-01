@@ -29,10 +29,12 @@ public class BlogSvgCreator
                 .with(new Style()
                         .addClassDeclaration(".red { font: 40px serif; fill: red; }")
                         .addClassDeclaration(".small { font: 20px sans-serif; }")
+                        .addClassDeclaration(".large { font: 40px sans-serif; }")
                         .addClassDeclaration(".yellowish {fill: rgb(255,203,70); }")
                         .addClassDeclaration(".blue {fill: rgb(62,161,203);}")
                         .addClassDeclaration(".green {fill: rgb(130,215,54);}")
                         .addClassDeclaration(".red {fill: rgb(255,105,70)};")
+                        .addClassDeclaration(".operationbox {fill: white;stroke: black;font: 40px sans-serif;)};")
                 )
                 .with(new Lifeline.LifelineBuilder(start_x,start_y,end_x,start_y, "black").build())
                 .with(new CircleWithText.CircleWithTextBuilder(2 * horzontal_distance, start_y, 20, "black", "yellowish", "2").build())
@@ -40,7 +42,7 @@ public class BlogSvgCreator
                 .with(new CircleWithText.CircleWithTextBuilder(4 * horzontal_distance, start_y, 20, "black", "green", "22").build())
                 .with(new CircleWithText.CircleWithTextBuilder(5 * horzontal_distance, start_y, 20, "black", "red", "5").build())
                 .with(new Lifeline.LifelineBuilder(start_x,300,end_x,300, "black").build())
-                .with(new OperationBox.OperationBoxBuilder(start_x, end_x, "filter (x => x > 10)").build())
+                .with(new OperationBox.OperationBoxBuilder(start_x, end_x, 200, "filter (x => x > 10)").build())
                 .build();
         File svgFile = new File("target/blog-deel1.svg");
         final String svgString = printToString(svg);
